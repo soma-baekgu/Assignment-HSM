@@ -2,7 +2,7 @@ package com.backgu.assignment.core.domain.user
 
 import com.backgu.assignment.core.domain.support.PasswordEncryptor
 
-class User(
+class User private constructor(
     val id: Long,
     val name: String,
     val email: String,

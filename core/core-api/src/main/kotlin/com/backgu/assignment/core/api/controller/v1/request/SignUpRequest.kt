@@ -8,7 +8,7 @@ data class SignUpRequest(
     val password: String,
 ) {
     fun toUser(): User =
-        User(
+        User.of(
             id = 0L,
             name = name,
             email = email,
