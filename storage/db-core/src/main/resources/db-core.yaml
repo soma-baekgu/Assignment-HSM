@@ -17,6 +17,12 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+        generate_statistics: true
+        session_factory:
+          statistics:
+            log_summary: true
+            log_slow_statements: true
+
   h2:
     console:
       enabled: true
@@ -31,6 +37,19 @@ storage:
       data-source-properties:
         rewriteBatchedStatements: true
 
+logging:
+  level:
+    org.hibernate:
+      type: trace
+      stat: debug
+      SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+hibernate:
+  session:
+    events:
+      log:
+        LOG_QUERIES_SLOWER_THAN_M: 0
 ---
 spring.config.activate.on-profile: local-dev
 
